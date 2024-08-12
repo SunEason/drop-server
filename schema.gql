@@ -1,0 +1,31 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type UserType {
+  id: String!
+  nickname: String!
+  telephone: String!
+  account: String!
+  email: String!
+
+  """密码"""
+  password: String!
+}
+
+type Query {
+  """使用id查询用户"""
+  find(id: String!): UserType!
+}
+
+type Mutation {
+  create(params: CreateUserDto!): Boolean!
+}
+
+input CreateUserDto {
+  nickname: String!
+  telephone: String!
+  account: String!
+  email: String!
+  password: String!
+}
