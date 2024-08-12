@@ -1,7 +1,7 @@
 import { Args, Mutation, Resolver, Query } from '@nestjs/graphql';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
-import { UserType } from './dto/user.type';
+import { UserVo } from './vo/user.vo';
 
 @Resolver()
 export class UserResolver {
@@ -12,8 +12,8 @@ export class UserResolver {
     return await this.userService.create(params);
   }
 
-  @Query(() => UserType, { description: '使用id查询用户' })
-  async find(@Args('id') id: string): Promise<UserType> {
+  @Query(() => UserVo, { description: '使用id查询用户' })
+  async find(@Args('id') id: string): Promise<UserVo> {
     return await this.userService.find(id);
   }
 }
