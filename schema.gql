@@ -2,7 +2,7 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type UserType {
+type UserVo {
   id: String!
   nickname: String!
   telephone: String!
@@ -15,14 +15,29 @@ type UserType {
 
 type Query {
   """使用id查询用户"""
-  find(id: String!): UserType!
+  find(id: String!): UserVo!
 }
 
 type Mutation {
+  """创建用户"""
   create(params: CreateUserDto!): Boolean!
+
+  """更新用户"""
+  update(id: String!, params: UpdateUserDto!): Boolean!
+
+  """删除用户"""
+  remove(id: String!): Boolean!
 }
 
 input CreateUserDto {
+  nickname: String!
+  telephone: String!
+  account: String!
+  email: String!
+  password: String!
+}
+
+input UpdateUserDto {
   nickname: String!
   telephone: String!
   account: String!
